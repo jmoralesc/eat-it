@@ -19,29 +19,29 @@
 
 
   %body
-    %nav.navbar.navbar-top.navbar-inverse
+    .navbar.navbar-inverse 
       .navbar-inner
         .container
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Eat It
           .container.nav-collapse
-            .form-inline{:role => "form"}
+            .form-inline.pull-right{:role => "form"}
               .form-group
-                = if !current_user    
+                - if !current_user 
                   = form_tag(user_session_path, :method => "get") do
                     = text_field_tag :email, params[:email], type: "text", placeholder: "Email"
                     = text_field_tag :password, params[:password], type: "password", placeholder: "Contraseña"
-                    %button.btn.btn-success{:type => "submit"} Ingresar
-              = if current_user
+                    %button.btn.btn-warning{:type => "submit"} Ingresar
+              - if current_user
                 = form_tag(destroy_user_session_path, :method => "delete") do
-                  %button.btn.btn-success{:type => "submit"} Cerrar sesión
+                  %button.btn.btn-warning{:type => "submit"} Cerrar sesión
 
-    .container-fluid        
+    .container
       = bootstrap_flash
       = yield
       
-    %footer
-      %p &copy; Eat It.Co 2014
+    .mastfoot
+      .inner
+        %p &copy; Eat It.Co 2014

@@ -1,8 +1,9 @@
-.container
-  .row
-    .col-md-4
-      .form-inline
-        .form-group
-          = form_tag(recipes_path, :method => "get") do
-            = text_field_tag :search, params[:search], placeholder: "Ingredientes"
-            %button.btn.btn-success{:type => "submit"} Buscar
+.row
+  = image_tag "01.png", size: "400x400"
+.row
+  .col-md-4
+    .form-inline
+      .form-group
+        = form_tag(recipes_path, :method => "get") do
+          = text_field_tag :search, params[:search], placeholder: "Ingredientes"
+          %button.btn.btn-warning{:type => "submit"} Buscar

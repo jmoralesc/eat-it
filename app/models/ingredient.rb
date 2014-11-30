@@ -1,4 +1,3 @@
 class Ingredient < ActiveRecord::Base
-  belongs_to :Primary, class_name: 'Recipe'
-  belongs_to :Secondary, class_name: 'Recipe'
+has_and_belongs_to_many :recipes
 end

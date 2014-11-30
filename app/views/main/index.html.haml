@@ -3,8 +3,6 @@
     .col-md-4
       .form-inline
         .form-group
-          %input.input-xxlarge.form-control{:placeholder => "Ingredientes", :type => "text"}
-          %button.btn.btn-success{:type => "submit"} Buscar
-.container
-  .row
-    .col-md-4
+          = form_tag(recipes_path, :method => "get") do
+            = text_field_tag :search, params[:search], placeholder: "Ingredientes"
+            %button.btn.btn-success{:type => "submit"} Buscar

@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.decimal :score
       t.decimal :time
       t.string :ingredient
-
+      t.integer :ingredients_array, array: true, default: []
       t.timestamps
     end
   end

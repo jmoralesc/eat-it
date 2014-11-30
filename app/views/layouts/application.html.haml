@@ -19,10 +19,6 @@
 
 
   %body
-    = if notice
-      %p.notice= notice
-    = if alert
-      %p.alert= alert
     %nav.navbar.navbar-top.navbar-inverse
       .navbar-inner
         .container
@@ -31,16 +27,17 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") Eat It
-          = if !current_user
-            .container.nav-collapse
-              .form-inline{:role => "form"}
-                .form-group
+          .container.nav-collapse
+            .form-inline{:role => "form"}
+              .form-group
+                = if !current_user    
                   = form_tag(user_session_path, :method => "get") do
                     = text_field_tag :email, params[:email], type: "text", placeholder: "Email"
                     = text_field_tag :password, params[:password], type: "password", placeholder: "Contraseña"
                     %button.btn.btn-success{:type => "submit"} Ingresar
-          = if current_user
-            %button.btn.btn-success{:type => "submit"} Cerrar session
+              = if current_user
+                = form_tag(destroy_user_session_path, :method => "delete") do
+                  %button.btn.btn-success{:type => "submit"} Cerrar sesión
 
     .container-fluid        
       = bootstrap_flash

@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
   resources :recipes
-  devise_for :users, controllers: {
-    sessions: 'sessions'
-  }
-  # Example of regular route:
+  resources :users
+  devise_for :users, path: '', path_names: {sign_in: "login", sign_out: "logout"},
+             controllers: {registrations: "registrations"}  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

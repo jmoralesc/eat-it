@@ -1,10 +1,18 @@
 - model_class = Recipe
-.page-header
-  %h1 Resultados
 .row
+  %h4 Resultados con 100% de ingredientes
   - @recipes.each do |recipe|
-    .col-md-4
-      %p
-        = link_to recipe_path(recipe.id)
+    - if recipe != @recipes.last
+      %br
+      .col-md-4
         = recipe.title
-        = recipe.image_url
+        %br
+        = image_tag recipe.image_url, size: "100x100"
+  %br
+  %br
+  %h4 Sugerencia con 80% de ingredientes
+  .col-xs-2
+    = @recipes.last.title
+    %br
+    = image_tag @recipes.last.image_url, size: "100x100"
+      

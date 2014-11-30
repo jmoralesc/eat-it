@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :users
   devise_for :users, path: '', path_names: {sign_in: "login", sign_out: "logout"},
-             controllers: {registrations: "registrations"}  # Example of regular route:
+             controllers: {}  # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
